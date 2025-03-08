@@ -1,2 +1,2 @@
 # clustering
-Clustering Analyses for train purposes
+Clustering Analyses for training purposes
