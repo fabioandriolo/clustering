@@ -63,3 +63,26 @@ editora = st.radio(
 )
 df_editora = df_information[df_information['Publisher']==editora]
 st.dataframe(df_editora)
+
+st.header("Resultados do Clustering (Questão 1)", divider="blue")
+df_cluster = pd.read_csv('df_total.csv')
+st.dataframe(df_cluster)
+
+st.header("Filtragem dos heróis por cluster", divider="blue")
+cluster = st.radio(
+    "Qual o cluster que você quer escolher?",
+    options = df_cluster['cluster'].unique(),
+    index=None
+)
+df_cluster2 = df_cluster[df_cluster['cluster']==cluster]
+st.dataframe(df_cluster2)
+
+st.header("Gráfico de dispersão (Questão 1)", divider="blue")
+df_cluster3 = pd.read_csv('df_total3.csv')
+st.scatter_chart(
+    df_cluster3,
+    x="Height",
+    y="Weight",
+    color="cluster"
+)
+
